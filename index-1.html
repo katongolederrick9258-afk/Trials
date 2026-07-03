@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Busega Market Leaders &amp; Vendors SACCO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+/* ============================================================
+   BUSEGA MARKET LEADERS & VENDORS SACCO — DESIGN TOKENS
+   Palette: Navy Blue / Black / Army Green / White (sparingly)
+   ============================================================ */
+:root{
+  --navy:#0a1f3d;
+  --navy-2:#0f2c54;
+  --navy-3:#16386b;
+  --black:#0b0c0e;
+  --army:#4b5320;
+  --army-2:#5e6b28;
+  --army-light:#7c8a3f;
+  --white:#ffffff;
+  --offwhite:#f4f6f2;
+  --ink:#eef1f6;
+  --muted:#aab6c9;
+  --danger:#a13d3d;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --bg:var(--navy);
+  --panel:#0f2743;
+  --panel-2:#122f52;
+  --text:#eef1f6;
+  --sub:#a9b7cc;
+  --border:rgba(255,255,255,.08);
+}
+body.light{
+  --bg:#eef1ea;
+  --panel:#ffffff;
+  --panel-2:#f2f4ee;
+  --text:#0c1420;
+  --sub:#3b4657;
+  --border:rgba(10,31,61,.12);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html,body{height:100%;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  transition:background .3s ease, color .3s ease;
+}
+h1,h2,h3,h4,.brand{font-family:'Sora',sans-serif;}
+.hidden{display:none !important;}
+img{max-width:100%;display:block;}
+button{font-family:inherit; cursor:pointer;}
+input,select,button{font-family:inherit;}
+::selection{background:var(--army); color:#fff;}
+.scrollbar-thin::-webkit-scrollbar{width:6px;}
+.scrollbar-thin::-webkit-scrollbar-thumb{background:var(--army); border-radius:6px;}
+
+/* ---------- Utility ---------- */
+.btn{
+  border:none; border-radius:10px; padding:12px 22px; font-weight:600; font-size:14px;
+  display:inline-flex; align-items:center; gap:8px; transition:transform .15s ease, box-shadow .15s ease;
+}
+.btn:active{transform:scale(.97);}
+.btn-primary{background:linear-gradient(135deg,var(--army),var(--army-light)); color:#fff; box-shadow:0 6px 18px rgba(75,83,32,.4);}
+.btn-primary:hover{box-shadow:0 8px 24px rgba(75,83,32,.55);}
+.btn-navy{background:linear-gradient(135deg,var(--navy-2),var(--navy-3)); color:#fff;}
+.btn-outline{background:transparent; border:1.5px solid var(--border); color:var(--text);}
+.btn-danger{background:var(--danger); color:#fff;}
+.btn-sm{padding:8px 14px; font-size:12.5px; border-radius:8px;}
+.pill{padding:4px 12px; border-radius:20px; font-size:11px; font-weight:700; letter-spacing:.03em; text-transform:uppercase;}
+.pill.pending{background:rgba(255,193,7,.15); color:#ffc107;}
+.pill.approved{background:rgba(75,83,32,.25); color:#9ab35c;}
+.pill.rejected{background:rgba(161,61,61,.2); color:#e08a8a;}
+.card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow);}
+.field{display:flex; flex-direction:column; gap:6px; margin-bottom:16px;}
+.field label{font-size:12.5px; font-weight:600; color:var(--sub); text-transform:uppercase; letter-spacing:.04em;}
+.field input, .field select{
+  background:var(--panel-2); border:1px solid var(--border); border-radius:9px; padding:12px 14px;
+  color:var(--text); font-size:14.5px; outline:none;
+}
+.field input:focus, .field select:focus{border-color:var(--army-light);}
+.pw-wrap{position:relative;}
+.pw-wrap input{width:100%; padding-right:42px;}
+.pw-toggle{position:absolute; right:12px; top:50%; transform:translateY(-50%); background:none; border:none; color:var(--sub); font-size:16px;}
+
+/* ============ LOGIN SCREEN ============ */
+#loginScreen{
+  min-height:100vh; display:flex; align-items:center; justify-content:flex-end;
+  background:linear-gradient(120deg, rgba(6,14,28,.88), rgba(10,31,61,.72)), url('images/hero-signin.jpg') center/cover no-repeat;
+  padding:40px;
+}
+.login-brandbar{
+  position:absolute; top:28px; left:36px; display:flex; align-items:center; gap:12px; color:#fff;
+}
+.logo-mark{
+  width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,var(--army),var(--navy-3));
+  display:flex; align-items:center; justify-content:center; font-weight:800; font-family:'Sora',sans-serif; font-size:18px; box-shadow:var(--shadow);
+}
+.login-brandbar .b-name{font-family:'Sora',sans-serif; font-weight:700; font-size:15px; line-height:1.15;}
+.login-brandbar .b-sub{font-size:11px; color:#c8d2e0; letter-spacing:.06em; text-transform:uppercase;}
+
+.login-card{
+  width:420px; max-width:92vw; background:rgba(11,16,26,.72); backdrop-filter:blur(18px);
+  border:1px solid rgba(255,255,255,.14); border-radius:20px; padding:34px 32px; box-shadow:0 25px 60px rgba(0,0,0,.55);
+  color:#fff;
+}
+.login-card h1{font-size:22px; margin-bottom:4px;}
+.login-card p.tag{color:#c8d2e0; font-size:13px; margin-bottom:22px;}
+.role-tabs{display:flex; gap:8px; margin-bottom:22px; background:rgba(255,255,255,.06); padding:5px; border-radius:12px;}
+.role-tabs button{
+  flex:1; padding:10px 6px; border:none; background:transparent; color:#c8d2e0; border-radius:9px; font-size:12.5px; font-weight:700;
+}
+.role-tabs button.active{background:linear-gradient(135deg,var(--army),var(--army-light)); color:#fff;}
+.login-card .field label{color:#c8d2e0;}
+.login-card .field input{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); color:#fff;}
+.login-card .field input::placeholder{color:#8fa0ba;}
+.login-error{background:rgba(161,61,61,.25); border:1px solid rgba(161,61,61,.5); color:#ffd3d3; padding:10px 12px; border-radius:9px; font-size:12.5px; margin-bottom:14px;}
+.login-submit{width:100%; justify-content:center; margin-top:6px; font-size:14.5px;}
+.login-foot{margin-top:18px; font-size:11px; color:#93a2ba; text-align:center;}
+
+/* ============ APP SHELL ============ */
+#appShell{min-height:100vh; display:flex; flex-direction:column;}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between; padding:16px 28px;
+  background:var(--panel); border-bottom:1px solid var(--border); position:sticky; top:0; z-index:40;
+}
+.topbar .brand{display:flex; align-items:center; gap:12px;}
+.topbar .brand .b-text{line-height:1.15;}
+.topbar .brand .b-text b{display:block; font-size:14.5px;}
+.topbar .brand .b-text span{font-size:10.5px; color:var(--sub); letter-spacing:.05em; text-transform:uppercase;}
+.topbar-right{display:flex; align-items:center; gap:14px;}
+.icon-btn{
+  width:42px; height:42px; border-radius:12px; border:1px solid var(--border); background:var(--panel-2); color:var(--text);
+  display:flex; align-items:center; justify-content:center; font-size:16px; position:relative;
+}
+.notif-dot{position:absolute; top:6px; right:6px; width:8px; height:8px; border-radius:50%; background:#e05a5a; border:2px solid var(--panel-2);}
+.role-badge{font-size:11px; padding:5px 10px; border-radius:8px; background:rgba(75,83,32,.2); color:var(--army-light); font-weight:700; text-transform:uppercase; letter-spacing:.04em;}
+
+/* Slide-out menu panel */
+#menuOverlay{position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:49;}
+#menuPanel{
+  position:fixed; top:0; right:0; height:100vh; width:340px; max-width:88vw; background:var(--panel);
+  border-left:1px solid var(--border); z-index:50; padding:26px 22px; overflow-y:auto; box-shadow:-15px 0 40px rgba(0,0,0,.4);
+  transform:translateX(100%); transition:transform .28s ease;
+}
+#menuPanel.open{transform:translateX(0);}
+.menu-close{float:right; background:none; border:none; color:var(--sub); font-size:18px;}
+.menu-profile{display:flex; gap:14px; align-items:center; padding:18px 0 22px; border-bottom:1px solid var(--border); margin-bottom:16px;}
+.avatar{
+  width:58px; height:58px; border-radius:50%; background:linear-gradient(135deg,var(--army),var(--navy-3)); display:flex; align-items:center;
+  justify-content:center; font-weight:800; color:#fff; font-size:18px; overflow:hidden; flex-shrink:0; border:2px solid var(--border);
+}
+.avatar img{width:100%; height:100%; object-fit:cover;}
+.menu-profile .mp-name{font-weight:700; font-size:14.5px;}
+.menu-profile .mp-id{font-size:11.5px; color:var(--sub);}
+.menu-profile .mp-balance{font-size:12px; color:var(--army-light); font-weight:700; margin-top:2px;}
+.avatar-upload{margin-top:8px;}
+.avatar-upload label{font-size:11px; color:var(--army-light); cursor:pointer; text-decoration:underline;}
+.menu-nav{list-style:none; display:flex; flex-direction:column; gap:4px; margin-bottom:18px;}
+.menu-nav button{
+  width:100%; text-align:left; background:none; border:none; color:var(--text); padding:12px 10px; border-radius:9px;
+  font-size:14px; display:flex; align-items:center; gap:12px; font-weight:500;
+}
+.menu-nav button:hover, .menu-nav button.active{background:var(--panel-2); color:var(--army-light);}
+.menu-nav button i{width:18px; text-align:center;}
+.menu-section-title{font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--sub); margin:14px 0 8px;}
+.menu-toggle-row{display:flex; align-items:center; justify-content:space-between; padding:10px; background:var(--panel-2); border-radius:9px; margin-bottom:10px;}
+.switch{position:relative; width:44px; height:24px;}
+.switch input{opacity:0; width:0; height:0;}
+.slider{position:absolute; inset:0; background:#3a4a63; border-radius:24px; transition:.2s;}
+.slider:before{content:""; position:absolute; height:18px; width:18px; left:3px; top:3px; background:#fff; border-radius:50%; transition:.2s;}
+input:checked + .slider{background:var(--army);}
+input:checked + .slider:before{transform:translateX(20px);}
+.lang-select, .menu-select{width:100%; background:var(--panel-2); border:1px solid var(--border); color:var(--text); padding:9px 10px; border-radius:8px; font-size:13px;}
+.menu-logout{width:100%; margin-top:8px;}
+
+/* ============ MAIN CONTENT ============ */
+main{flex:1; padding:26px 30px 0; max-width:1280px; margin:0 auto; width:100%;}
+.section{display:none;}
+.section.active{display:block; animation:fadein .25s ease;}
+@keyframes fadein{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+.section-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; flex-wrap:wrap; gap:10px;}
+.section-head h2{font-size:21px;}
+.section-head p{color:var(--sub); font-size:13px; margin-top:2px;}
+
+.stat-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:16px; margin-bottom:26px;}
+.stat-card{padding:20px; position:relative; overflow:hidden;}
+.stat-card .st-label{font-size:11.5px; color:var(--sub); text-transform:uppercase; letter-spacing:.05em;}
+.stat-card .st-val{font-size:25px; font-weight:800; margin-top:6px; font-family:'Sora',sans-serif;}
+.stat-card .st-icon{position:absolute; right:14px; top:14px; font-size:26px; opacity:.18;}
+.stat-card.army{border-left:4px solid var(--army);}
+.stat-card.navy{border-left:4px solid var(--navy-3);}
+
+.grid-2{display:grid; grid-template-columns:1.3fr 1fr; gap:20px;}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px;}
+@media (max-width:900px){.grid-2{grid-template-columns:1fr;} .grid-3{grid-template-columns:1fr;}}
+
+.panel{padding:22px;}
+.panel h3{font-size:15px; margin-bottom:14px; display:flex; align-items:center; gap:8px;}
+
+table{width:100%; border-collapse:collapse; font-size:13.5px;}
+th{text-align:left; color:var(--sub); font-size:11px; text-transform:uppercase; letter-spacing:.04em; padding:10px 8px; border-bottom:1px solid var(--border);}
+td{padding:12px 8px; border-bottom:1px solid var(--border);}
+tr:last-child td{border-bottom:none;}
+.tx-credit{color:#8fbf6a; font-weight:700;}
+.tx-debit{color:#e08a8a; font-weight:700;}
+.cat-badge{padding:3px 9px; border-radius:6px; font-size:11px; font-weight:700;}
+.cat-Deposits, .cat-Deposit{background:rgba(75,83,32,.2); color:#9ab35c;}
+.cat-Withdrawals, .cat-Withdrawal{background:rgba(161,61,61,.18); color:#e08a8a;}
+.cat-Loans, .cat-Loan{background:rgba(22,56,107,.4); color:#8fb1e0;}
+.cat-Shares, .cat-Share{background:rgba(180,140,40,.2); color:#e0c073;}
+.cat-Repayment{background:rgba(22,56,107,.4); color:#8fb1e0;}
+
+.tab-row{display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap;}
+.tab-btn{padding:8px 16px; border-radius:8px; border:1px solid var(--border); background:var(--panel-2); color:var(--sub); font-size:12.5px; font-weight:600;}
+.tab-btn.active{background:var(--army); color:#fff; border-color:var(--army);}
+
+.empty-state{text-align:center; padding:40px 10px; color:var(--sub); font-size:13.5px;}
+.empty-state i{font-size:30px; margin-bottom:10px; opacity:.4; display:block;}
+
+/* Member list rows */
+.member-row{display:flex; align-items:center; justify-content:space-between; padding:14px 6px; border-bottom:1px solid var(--border); gap:10px; flex-wrap:wrap;}
+.member-row:last-child{border-bottom:none;}
+.member-row .mi{display:flex; align-items:center; gap:12px;}
+.member-row .mi .mid{font-size:11.5px; color:var(--army-light); font-weight:700;}
+.member-row .actions{display:flex; gap:6px;}
+
+/* Growth graph */
+.graph-wrap{position:relative; height:260px; width:100%;}
+canvas{width:100%; height:100%;}
+
+/* Get in touch — MEMBER ONLY */
+.contact-section{
+  margin:34px -30px 0; min-height:0; padding:46px 6vw 40px;
+  background:linear-gradient(120deg, rgba(6,14,28,.9), rgba(75,83,32,.55)), url('images/get-in-touch.jpg') center/cover no-repeat;
+  color:#fff;
+}
+.contact-grid{display:grid; grid-template-columns:1fr 120px 1fr; gap:10px; align-items:start; max-width:1200px; margin:0 auto;}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr;}}
+.contact-left .cl-logo{display:flex; align-items:center; gap:14px; margin-bottom:16px;}
+.contact-left .cl-logo .logo-mark{width:60px; height:60px; font-size:22px;}
+.contact-left .cl-logo b{font-size:19px; font-family:'Sora',sans-serif;}
+.contact-left p{color:#dbe2ee; font-size:14px; line-height:1.7; max-width:420px;}
+.contact-left .theme-line{margin-top:14px; font-family:'Sora',sans-serif; font-style:italic; color:#cfe0b8; font-size:14.5px;}
+.social-row{display:flex; gap:10px; margin-top:26px;}
+.social-box{
+  width:42px; height:42px; border-radius:10px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center;
+  font-size:18px; border:1px solid rgba(255,255,255,.18);
+}
+.social-box.fb{color:#1877F2;}
+.social-box.x{color:#ffffff;}
+.social-box.li{color:#0A66C2;}
+.social-box.wa{color:#25D366;}
+.contact-right h3{font-size:20px; margin-bottom:14px; letter-spacing:.04em;}
+.contact-item{display:flex; align-items:center; gap:12px; margin-bottom:13px; font-size:14px; color:#e8ecf3;}
+.contact-item .cbox{
+  width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0;
+}
+.contact-item .cbox.ig{color:#E1306C;}
+.contact-item .cbox.tt{color:#ffffff;}
+.contact-item .cbox.wa2{color:#25D366;}
+.contact-item .cbox.mail{color:#8fb1e0;}
+.contact-item .cbox.call{color:#9ab35c;}
+
+/* Notifications drawer */
+#notifPanel{
+  position:fixed; top:70px; right:24px; width:340px; max-width:88vw; max-height:70vh; overflow-y:auto; background:var(--panel);
+  border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); z-index:60; padding:14px;
+}
+.notif-item{padding:12px; border-radius:9px; background:var(--panel-2); margin-bottom:8px; font-size:13px;}
+.notif-item .ni-time{font-size:11px; color:var(--sub); margin-top:4px;}
+.notif-item.unread{border-left:3px solid var(--army-light);}
+
+/* Toast */
+#toast{position:fixed; bottom:26px; left:50%; transform:translateX(-50%); background:var(--panel); border:1px solid var(--border);
+  color:var(--text); padding:13px 20px; border-radius:10px; box-shadow:var(--shadow); z-index:80; font-size:13.5px; display:none;}
+
+/* Benefit strip */
+.benefit-strip{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; margin:22px 0;}
+.benefit-card{padding:18px; display:flex; gap:12px; align-items:flex-start;}
+.benefit-card i{font-size:20px; color:var(--army-light); margin-top:2px;}
+.benefit-card h4{font-size:13.5px; margin-bottom:4px;}
+.benefit-card p{font-size:12px; color:var(--sub); line-height:1.5;}
+
+.modal-bg{position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:70; display:flex; align-items:center; justify-content:center; padding:20px;}
+.modal{width:420px; max-width:100%; padding:26px;}
+.modal h3{margin-bottom:16px;}
+.modal .modal-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:6px;}
+
+footer.sys-foot{text-align:center; color:var(--sub); font-size:11.5px; padding:22px; margin-top:30px;}
+</style>
+</head>
+<body>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="loginScreen">
+  <div class="login-brandbar">
+    <div class="logo-mark">BM</div>
+    <div>
+      <div class="b-name">Busega Market Leaders &amp; Vendors SACCO</div>
+      <div class="b-sub">Save Together. Grow Together.</div>
+    </div>
+  </div>
+
+  <div class="login-card">
+    <h1>Welcome back</h1>
+    <p class="tag">Sign in to access your SACCO account</p>
+
+    <div class="role-tabs">
+      <button type="button" class="active" data-role="member" onclick="setLoginRole('member')"><i class="fa-solid fa-user"></i> Member</button>
+      <button type="button" data-role="mobiliser" onclick="setLoginRole('mobiliser')"><i class="fa-solid fa-people-carry-box"></i> Mobiliser</button>
+      <button type="button" data-role="admin" onclick="setLoginRole('admin')"><i class="fa-solid fa-user-shield"></i> Admin</button>
+    </div>
+
+    <div id="loginErrorBox" class="login-error hidden"></div>
+
+    <form id="loginForm" onsubmit="return doLogin(event)">
+      <div class="field">
+        <label id="loginIdLabel">Member ID</label>
+        <input type="text" id="loginId" placeholder="e.g. M-0001" autocomplete="off" required>
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <div class="pw-wrap">
+          <input type="password" id="loginPassword" placeholder="Enter password" required>
+          <button type="button" class="pw-toggle" onclick="togglePw('loginPassword', this)"><i class="fa-solid fa-eye"></i></button>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary login-submit"><i class="fa-solid fa-right-to-bracket"></i> Sign In</button>
+    </form>
+    <div class="login-foot">Busega Market Leaders &amp; Vendors SACCO · Secure Member Portal</div>
+  </div>
+</div>
+
+<!-- ============ APP SHELL ============ -->
+<div id="appShell" class="hidden">
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-mark">BM</div>
+      <div class="b-text"><b>Busega SACCO</b><span id="topRoleName">Member Portal</span></div>
+    </div>
+    <div class="topbar-right">
+      <span class="role-badge" id="roleBadge">MEMBER</span>
+      <button class="icon-btn" onclick="toggleNotifPanel()" title="Notifications">
+        <i class="fa-solid fa-bell"></i>
+        <span id="notifDot" class="notif-dot hidden"></span>
+      </button>
+      <button class="icon-btn" onclick="toggleMenu()" title="Menu"><i class="fa-solid fa-bars"></i></button>
+    </div>
+  </div>
+
+  <div id="notifPanel" class="hidden card"></div>
+
+  <!-- Slide-out menu -->
+  <div id="menuOverlay" class="hidden" onclick="toggleMenu()"></div>
+  <div id="menuPanel">
+    <button class="menu-close" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="menu-profile">
+      <div class="avatar" id="menuAvatar">--</div>
+      <div>
+        <div class="mp-name" id="menuName">—</div>
+        <div class="mp-id" id="menuId">—</div>
+        <div class="mp-balance hidden" id="menuBalance"></div>
+        <div class="avatar-upload hidden" id="avatarUploadWrap">
+          <label for="avatarInput">Change photo</label>
+          <input type="file" id="avatarInput" accept="image/*" class="hidden" onchange="handleAvatarUpload(event)">
+        </div>
+      </div>
+    </div>
+    <ul class="menu-nav" id="menuNav"></ul>
+    <div class="menu-section-title">Settings</div>
+    <div class="menu-toggle-row">
+      <span><i class="fa-solid fa-moon"></i> Dark mode</span>
+      <label class="switch"><input type="checkbox" id="themeSwitch" onchange="toggleTheme()"><span class="slider"></span></label>
+    </div>
+    <div id="langWrap" class="hidden" style="margin-bottom:10px;">
+      <label style="font-size:11px;color:var(--sub);text-transform:uppercase;letter-spacing:.04em;">Language</label>
+      <select class="lang-select" id="langSelect" onchange="setLanguage(this.value)" style="margin-top:6px;">
+        <option value="en">English</option>
+        <option value="lg">Luganda</option>
+      </select>
+    </div>
+    <button class="btn btn-outline btn-sm" style="width:100%;margin-bottom:8px;" onclick="openPasswordModal()"><i class="fa-solid fa-key"></i> Change password</button>
+    <button class="btn btn-danger menu-logout" onclick="logout()"><i class="fa-solid fa-arrow-right-from-bracket"></i> Log out</button>
+  </div>
+
+  <main id="mainContent" class="scrollbar-thin">
+    <!-- ================= MEMBER SECTIONS ================= -->
+    <section id="sec-m-dashboard" class="section">
+      <div class="section-head">
+        <div><h2 data-i18n="dashboard">Dashboard</h2><p>Your account overview at a glance</p></div>
+      </div>
+      <div class="stat-grid" id="memberStatGrid"></div>
+      <div class="grid-2">
+        <div class="card panel">
+          <h3><i class="fa-solid fa-layer-group"></i> Transactions by Category</h3>
+          <div class="tab-row" id="memberCatTabs"></div>
+          <table><thead><tr><th>Date</th><th>Category</th><th>Amount</th><th>Type</th></tr></thead><tbody id="memberCatTable"></tbody></table>
+        </div>
+        <div class="card panel">
+          <h3><i class="fa-solid fa-image"></i> Why save with us</h3>
+          <div class="benefit-strip" style="grid-template-columns:1fr;">
+            <div class="benefit-card"><i class="fa-solid fa-shield-halved"></i><div><h4>Secure Savings</h4><p>Your money is protected and always accessible to you.</p></div></div>
+            <div class="benefit-card"><i class="fa-solid fa-hand-holding-dollar"></i><div><h4>Fair Loans</h4><p>Access affordable loans backed by your savings history.</p></div></div>
+            <div class="benefit-card"><i class="fa-solid fa-people-group"></i><div><h4>Community Growth</h4><p>Every shilling saved strengthens Busega Market together.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec-m-transactions" class="section">
+      <div class="section-head"><div><h2 data-i18n="transactions">Transactions</h2><p>Full record of your account activity</p></div></div>
+      <div class="card panel">
+        <table><thead><tr><th>Date</th><th>Category</th><th>Description</th><th>Amount</th></tr></thead><tbody id="memberAllTxTable"></tbody></table>
+      </div>
+    </section>
+
+    <section id="sec-m-graph" class="section">
+      <div class="section-head"><div><h2 data-i18n="growth">Growth Graph</h2><p>How your account balance has changed over time</p></div></div>
+      <div class="card panel">
+        <div class="graph-wrap"><canvas id="growthCanvas"></canvas></div>
+      </div>
+    </section>
+
+    <section id="sec-m-loans" class="section">
+      <div class="section-head">
+        <div><h2 data-i18n="pending">Pending Loan Transactions</h2><p>Track loan requests awaiting decision</p></div>
+        <button class="btn btn-primary btn-sm" onclick="openLoanModal()"><i class="fa-solid fa-plus"></i> Request Loan</button>
+      </div>
+      <div class="card panel">
+        <table><thead><tr><th>Date</th><th>Amount</th><th>Purpose</th><th>Status</th></tr></thead><tbody id="memberLoansTable"></tbody></table>
+      </div>
+    </section>
+
+    <section id="sec-m-history" class="section">
+      <div class="section-head"><div><h2 data-i18n="history">History</h2><p>Complete history of loans, deposits and withdrawals</p></div></div>
+      <div class="card panel">
+        <table><thead><tr><th>Date</th><th>Category</th><th>Amount</th><th>Balance After</th></tr></thead><tbody id="memberHistoryTable"></tbody></table>
+      </div>
+    </section>
+
+    <!-- GET IN TOUCH — member only -->
+    <div id="contactSection" class="contact-section hidden">
+      <div class="contact-grid">
+        <div class="contact-left">
+          <div class="cl-logo"><div class="logo-mark">BM</div><b>Busega Market Leaders &amp; Vendors SACCO</b></div>
+          <p>Every shilling you save today builds the market stall, school fees, and future you're working towards. Join hundreds of Busega vendors already saving smarter and borrowing fairly with us.</p>
+          <div class="theme-line">"Your future self will thank you for saving today."</div>
+          <div class="social-row">
+            <a href="#" class="social-box fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-box x" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-box li" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-box wa" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <div></div>
+        <div class="contact-right">
+          <h3>GET IN TOUCH</h3>
+          <div class="contact-item"><span class="cbox call"><i class="fa-solid fa-phone"></i></span> +256 700 123 456</div>
+          <div class="contact-item"><span class="cbox wa2"><i class="fa-brands fa-whatsapp"></i></span> +256 701 998 765</div>
+          <div class="contact-item"><span class="cbox mail"><i class="fa-solid fa-envelope"></i></span> support@busegasacco.ug</div>
+          <div class="contact-item"><span class="cbox ig"><i class="fa-brands fa-instagram"></i></span> @busega.sacco</div>
+          <div class="contact-item"><span class="cbox tt"><i class="fa-brands fa-tiktok"></i></span> @busegasacco</div>
+          <div class="contact-item"><span class="cbox"><i class="fa-solid fa-location-dot"></i></span> Busega Market, Kampala, Uganda</div>
+          <div class="contact-item"><span class="cbox"><i class="fa-solid fa-clock"></i></span> Weekdays · 7:00am – 8:00pm</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= MOBILISER SECTIONS ================= -->
+    <section id="sec-mob-overview" class="section">
+      <div class="section-head"><div><h2>Overview</h2><p>Daily, weekly, monthly and annual SACCO activity</p></div></div>
+      <div class="stat-grid" id="mobStatGrid"></div>
+      <div class="card panel">
+        <h3><i class="fa-solid fa-users"></i> Members</h3>
+        <div id="mobMembersList"></div>
+      </div>
+    </section>
+
+    <section id="sec-mob-manage" class="section">
+      <div class="section-head">
+        <div><h2>Manage Members</h2><p>Add, remove and update member account balances</p></div>
+        <button class="btn btn-primary btn-sm" onclick="openAddMemberModal()"><i class="fa-solid fa-user-plus"></i> Add Member</button>
+      </div>
+      <div class="card panel">
+        <table><thead><tr><th>Member ID</th><th>Name</th><th>Balance</th><th style="width:210px;">Actions</th></tr></thead><tbody id="mobManageTable"></tbody></table>
+      </div>
+    </section>
+
+    <section id="sec-mob-daily" class="section">
+      <div class="section-head"><div><h2>Daily Transactions</h2><p>All activity, grouped by category</p></div></div>
+      <div class="tab-row" id="mobDailyTabs"></div>
+      <div class="card panel">
+        <table><thead><tr><th>Date</th><th>Member</th><th>Amount</th><th>Type</th></tr></thead><tbody id="mobDailyTable"></tbody></table>
+      </div>
+    </section>
+
+    <section id="sec-mob-profile" class="section">
+      <div class="section-head"><div><h2>Profile</h2><p>Manage your details and system credentials</p></div></div>
+      <div class="grid-2">
+        <div class="card panel">
+          <h3><i class="fa-solid fa-id-badge"></i> My Details</h3>
+          <div class="field"><label>Full Name</label><input id="mobProfileName"></div>
+          <div class="field"><label>Phone</label><input id="mobProfilePhone" placeholder="e.g. 07XXXXXXXX"></div>
+          <div class="field"><label>Email</label><input id="mobProfileEmail" placeholder="you@email.com"></div>
+          <button class="btn btn-primary btn-sm" onclick="saveMobProfile()"><i class="fa-solid fa-floppy-disk"></i> Save Details</button>
+        </div>
+        <div class="card panel">
+          <h3><i class="fa-solid fa-key"></i> My Login Credentials</h3>
+          <div class="field"><label>Mobiliser ID</label><input id="mobCredId"></div>
+          <div class="field"><label>Password</label>
+            <div class="pw-wrap"><input type="password" id="mobCredPw"><button type="button" class="pw-toggle" onclick="togglePw('mobCredPw', this)"><i class="fa-solid fa-eye"></i></button></div>
+          </div>
+          <button class="btn btn-navy btn-sm" onclick="saveMobCreds()"><i class="fa-solid fa-check"></i> Update Credentials</button>
+          <h3 style="margin-top:22px;"><i class="fa-solid fa-user-shield"></i> Admin Credentials</h3>
+          <p style="font-size:12px;color:var(--sub);margin-bottom:12px;">As mobiliser, you manage the Admin's login credentials.</p>
+          <div class="field"><label>Admin ID</label><input id="adminCredId"></div>
+          <div class="field"><label>Admin Password</label>
+            <div class="pw-wrap"><input type="password" id="adminCredPw"><button type="button" class="pw-toggle" onclick="togglePw('adminCredPw', this)"><i class="fa-solid fa-eye"></i></button></div>
+          </div>
+          <button class="btn btn-navy btn-sm" onclick="saveAdminCredsByMob()"><i class="fa-solid fa-check"></i> Update Admin Credentials</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ADMIN SECTIONS ================= -->
+    <section id="sec-a-overview" class="section">
+      <div class="section-head"><div><h2>Overview</h2><p>SACCO performance across all time frames</p></div></div>
+      <div class="stat-grid" id="adminStatGrid"></div>
+      <div class="benefit-strip">
+        <div class="benefit-card"><i class="fa-solid fa-arrow-trend-up"></i><div><h4>Total Savings Growth</h4><p>Track how member deposits are compounding month over month.</p></div></div>
+        <div class="benefit-card"><i class="fa-solid fa-scale-balanced"></i><div><h4>Loan Portfolio Health</h4><p>Monitor approved loans against total member shares.</p></div></div>
+        <div class="benefit-card"><i class="fa-solid fa-store"></i><div><h4>Market Reach</h4><p>Busega vendors building resilient, shared financial strength.</p></div></div>
+      </div>
+    </section>
+
+    <section id="sec-a-members" class="section">
+      <div class="section-head"><div><h2>Members Available</h2><p>All registered SACCO members</p></div></div>
+      <div class="card panel">
+        <table><thead><tr><th>Member ID</th><th>Name</th><th>Balance</th><th style="width:160px;">Actions</th></tr></thead><tbody id="adminMembersTable"></tbody></table>
+      </div>
+    </section>
+
+    <section id="sec-a-loans" class="section">
+      <div class="section-head"><div><h2>Loans</h2><p>Review and decide on member loan requests</p></div></div>
+      <div class="card panel">
+        <table><thead><tr><th>Date</th><th>Member</th><th>Amount</th><th>Purpose</th><th>Status</th><th style="width:190px;">Decision</th></tr></thead><tbody id="adminLoansTable"></tbody></table>
+      </div>
+    </section>
+
+    <section id="sec-a-profile" class="section">
+      <div class="section-head"><div><h2>Profile</h2><p>Your administrator details</p></div></div>
+      <div class="grid-2">
+        <div class="card panel">
+          <h3><i class="fa-solid fa-id-badge"></i> My Details</h3>
+          <div class="field"><label>Full Name</label><input id="adminProfileName"></div>
+          <div class="field"><label>Phone</label><input id="adminProfilePhone" placeholder="e.g. 07XXXXXXXX"></div>
+          <div class="field"><label>Email</label><input id="adminProfileEmail" placeholder="you@email.com"></div>
+          <button class="btn btn-primary btn-sm" onclick="saveAdminProfile()"><i class="fa-solid fa-floppy-disk"></i> Save Details</button>
+        </div>
+        <div class="card panel">
+          <h3><i class="fa-solid fa-lock"></i> Login Credentials</h3>
+          <p style="font-size:12.5px;color:var(--sub);line-height:1.6;">For security, your Admin ID and password can only be changed by the Mobiliser. Contact <b id="mobNameRef">the Mobiliser</b> to request an update.</p>
+          <div class="field" style="margin-top:14px;"><label>Admin ID</label><input id="adminIdView" disabled></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sys-foot">© <span id="yearNow"></span> Busega Market Leaders &amp; Vendors SACCO. All rights reserved. Built for production deployment.</footer>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ============================================================
+   BUSEGA SACCO — APPLICATION LOGIC (client-side demo build)
+   NOTE: Data lives in memory for this browser session so the
+   experience can be demoed instantly. For real production use,
+   wire these functions to a backend (Node/Express, PostgreSQL,
+   etc.) and a WebSocket layer for true cross-device real-time
+   notifications — see the closing notes for details.
+   ============================================================ */
+
+/* ---------- i18n ---------- */
+const I18N = {
+  en:{dashboard:"Dashboard",transactions:"Transactions",growth:"Growth Graph",pending:"Pending Loan Transactions",history:"History"},
+  lg: {dashboard:"Ekyapa Ekikulu",transactions:"Empisa z'Ssente",growth:"Enkulaakulana y'Ssente",pending:"Ebisaba by'Eby'empeewo Ebikyalindirivu",history:"Ebyafaayo"}
+};
+
+/* ---------- Seed Data ---------- */
+let state = {
+  theme:'dark',
+  language:'en',
+  currentUser:null, // {role:'member'|'mobiliser'|'admin', id}
+  nextMemberNum:5,
+  admin:{id:'ADMIN', password:'admin123', name:'SSEMANDA MIKE', phone:'0700 000 001', email:'ssemanda@busegasacco.ug', photo:null},
+  mobiliser:{id:'MOB-9258-2026', password:'#Walt9258$', name:'KATONGOLE DERRICK', phone:'0700 000 002', email:'katongole@busegasacco.ug', photo:null},
+  members:[
+    mkMember('M-0001','HANNAH CLOE JAIRAH'),
+    mkMember('M-0002','SSEGUYA MUSTFAH'),
+    mkMember('M-0003','KALYESUBULA SUNDAY'),
+    mkMember('M-0004','MUSUBO GEORGE')
+  ],
+  loans:[],
+  loanSeq:1,
+  notifications:{} // memberId -> [{msg,time,unread,sound}]
+};
+
+function mkMember(id,name){
+  return {id, name, password:'member123', balance:0, photo:null, transactions:[], phone:'', email:''};
+}
+
+/* ---------- Helpers ---------- */
+function toast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.style.display='block';
+  clearTimeout(window.__toastT);
+  window.__toastT=setTimeout(()=>t.style.display='none',2600);
+}
+function fmt(n){ return 'UGX ' + Number(n||0).toLocaleString('en-US'); }
+function todayStr(){ return new Date().toISOString().slice(0,10); }
+function findMember(id){ return state.members.find(m=>m.id===id); }
+function sortMembers(){ state.members.sort((a,b)=> a.id.localeCompare(b.id, undefined, {numeric:true})); }
+
+/* ---------- Sound cues (Web Audio) ---------- */
+function beep(freq=440, dur=0.15, type='sine'){
+  try{
+    const ctx = window.__actx || (window.__actx = new (window.AudioContext||window.webkitAudioContext)());
+    const osc = ctx.createOscillator(); const gain = ctx.createGain();
+    osc.type=type; osc.frequency.value=freq;
+    gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.18, ctx.currentTime+0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime+dur);
+    osc.connect(gain); gain.connect(ctx.destination);
+    osc.start(); osc.stop(ctx.currentTime+dur+0.02);
+  }catch(e){}
+}
+function soundFor(kind){
+  if(kind==='mobiliser'){ beep(392,0.16,'sine'); }
+  else if(kind==='admin'){ beep(660,0.12,'triangle'); setTimeout(()=>beep(880,0.12,'triangle'),140); }
+  else if(kind==='approved'){ beep(523,0.12); setTimeout(()=>beep(784,0.16),120); }
+  else if(kind==='rejected'){ beep(392,0.16); setTimeout(()=>beep(261,0.2),150); }
+}
+
+/* ---------- Notifications ---------- */
+function pushNotif(memberId, msg, soundKind){
+  if(!state.notifications[memberId]) state.notifications[memberId]=[];
+  state.notifications[memberId].unshift({msg, time:new Date().toLocaleString(), unread:true, sound:soundKind});
+  if(state.currentUser && state.currentUser.role==='member' && state.currentUser.id===memberId){
+    soundFor(soundKind);
+    renderNotifDot();
+  }
+}
+function renderNotifDot(){
+  const dot=document.getElementById('notifDot');
+  if(!state.currentUser){ dot.classList.add('hidden'); return; }
+  let list=[];
+  if(state.currentUser.role==='member') list=state.notifications[state.currentUser.id]||[];
+  const hasUnread = list.some(n=>n.unread);
+  dot.classList.toggle('hidden', !hasUnread);
+}
+function toggleNotifPanel(){
+  const p=document.getElementById('notifPanel');
+  if(p.classList.contains('hidden')){
+    let list=[];
+    if(state.currentUser.role==='member') list=state.notifications[state.currentUser.id]||[];
+    p.innerHTML = list.length? list.map(n=>`<div class="notif-item ${n.unread?'unread':''}"><div>${n.msg}</div><div class="ni-time">${n.time}</div></div>`).join('')
+      : `<div class="empty-state"><i class="fa-regular fa-bell-slash"></i>No notifications yet</div>`;
+    list.forEach(n=>n.unread=false);
+    p.classList.remove('hidden');
+    renderNotifDot();
+  } else {
+    p.classList.add('hidden');
+  }
+}
+
+/* ---------- Login ---------- */
+let loginRole='member';
+function setLoginRole(role){
+  loginRole=role;
+  document.querySelectorAll('.role-tabs button').forEach(b=>b.classList.toggle('active', b.dataset.role===role));
+  const label=document.getElementById('loginIdLabel');
+  const idInput=document.getElementById('loginId');
+  if(role==='member'){ label.textContent='Member ID'; idInput.placeholder='e.g. M-0001'; }
+  else if(role==='mobiliser'){ label.textContent='Mobiliser ID'; idInput.placeholder='MOB-XXXX-XXXX'; }
+  else { label.textContent='Admin ID'; idInput.placeholder='ADMIN'; }
+  document.getElementById('loginErrorBox').classList.add('hidden');
+}
+function togglePw(id, btn){
+  const input=document.getElementById(id);
+  const isPw = input.type==='password';
+  input.type = isPw? 'text':'password';
+  btn.innerHTML = isPw? '<i class="fa-solid fa-eye-slash"></i>':'<i class="fa-solid fa-eye"></i>';
+}
+function doLogin(e){
+  e.preventDefault();
+  const id=document.getElementById('loginId').value.trim().toUpperCase();
+  const pw=document.getElementById('loginPassword').value;
+  const errBox=document.getElementById('loginErrorBox');
+  errBox.classList.add('hidden');
+
+  let ok=false;
+  if(loginRole==='member'){
+    const m=findMember(id);
+    if(m && m.password===pw){ state.currentUser={role:'member', id:m.id}; ok=true; }
+  } else if(loginRole==='mobiliser'){
+    if(id===state.mobiliser.id.toUpperCase() && pw===state.mobiliser.password){ state.currentUser={role:'mobiliser', id:state.mobiliser.id}; ok=true; }
+  } else if(loginRole==='admin'){
+    if(id===state.admin.id.toUpperCase() && pw===state.admin.password){ state.currentUser={role:'admin', id:state.admin.id}; ok=true; }
+  }
+
+  if(!ok){
+    errBox.textContent='Invalid ID or password. Please try again.';
+    errBox.classList.remove('hidden');
+    return false;
+  }
+  document.getElementById('loginForm').reset();
+  enterApp();
+  return false;
+}
+function logout(){
+  state.currentUser=null;
+  document.getElementById('appShell').classList.add('hidden');
+  document.getElementById('loginScreen').classList.remove('hidden');
+  document.getElementById('menuPanel').classList.remove('open');
+  document.getElementById('menuOverlay').classList.add('hidden');
+}
+
+/* ---------- App shell / routing ---------- */
+function enterApp(){
+  document.getElementById('loginScreen').classList.add('hidden');
+  document.getElementById('appShell').classList.remove('hidden');
+  document.getElementById('yearNow').textContent = new Date().getFullYear();
+  buildMenuForRole();
+  document.getElementById('contactSection').classList.toggle('hidden', state.currentUser.role!=='member');
+  document.getElementById('langWrap').classList.toggle('hidden', state.currentUser.role!=='member');
+  document.getElementById('avatarUploadWrap').classList.toggle('hidden', state.currentUser.role!=='member');
+  const roleLabel = state.currentUser.role==='member'?'Member Portal': state.currentUser.role==='mobiliser'?'Mobiliser Portal':'Admin Portal';
+  document.getElementById('topRoleName').textContent=roleLabel;
+  document.getElementById('roleBadge').textContent=state.currentUser.role.toUpperCase();
+  renderMenuProfile();
+  routeTo(defaultSectionForRole());
+  renderNotifDot();
+}
+function defaultSectionForRole(){
+  if(state.currentUser.role==='member') return 'sec-m-dashboard';
+  if(state.currentUser.role==='mobiliser') return 'sec-mob-overview';
+  return 'sec-a-overview';
+}
+const MENUS = {
+  member:[
+    {id:'sec-m-dashboard', label:'Dashboard', icon:'fa-gauge', key:'dashboard'},
+    {id:'sec-m-transactions', label:'Transactions', icon:'fa-right-left', key:'transactions'},
+    {id:'sec-m-graph', label:'Growth-Graph', icon:'fa-chart-line', key:'growth'},
+    {id:'sec-m-loans', label:'Pending Loan Transactions', icon:'fa-hourglass-half', key:'pending'},
+    {id:'sec-m-history', label:'History', icon:'fa-clock-rotate-left', key:'history'}
+  ],
+  mobiliser:[
+    {id:'sec-mob-overview', label:'Overview', icon:'fa-gauge'},
+    {id:'sec-mob-manage', label:'Manage Members', icon:'fa-users-gear'},
+    {id:'sec-mob-daily', label:'Daily Transactions', icon:'fa-calendar-day'},
+    {id:'sec-mob-profile', label:'Profile', icon:'fa-id-badge'}
+  ],
+  admin:[
+    {id:'sec-a-overview', label:'Overview', icon:'fa-gauge'},
+    {id:'sec-a-members', label:'Members Available', icon:'fa-users'},
+    {id:'sec-a-loans', label:'Loans', icon:'fa-hand-holding-dollar'},
+    {id:'sec-a-profile', label:'Profile', icon:'fa-id-badge'}
+  ]
+};
+function buildMenuForRole(){
+  const nav=document.getElementById('menuNav');
+  nav.innerHTML = MENUS[state.currentUser.role].map(item=>
+    `<li><button data-target="${item.id}" onclick="routeTo('${item.id}')"><i class="fa-solid ${item.icon}"></i> <span data-i18n="${item.key||''}">${item.label}</span></button></li>`
+  ).join('');
+}
+function routeTo(sectionId){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  const el=document.getElementById(sectionId);
+  if(el) el.classList.add('active');
+  document.querySelectorAll('#menuNav button').forEach(b=>b.classList.toggle('active', b.dataset.target===sectionId));
+  toggleMenu(true);
+  renderSection(sectionId);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleMenu(forceClose){
+  const panel=document.getElementById('menuPanel');
+  const overlay=document.getElementById('menuOverlay');
+  if(forceClose===true){ panel.classList.remove('open'); overlay.classList.add('hidden'); return; }
+  const opening = !panel.classList.contains('open');
+  panel.classList.toggle('open');
+  overlay.classList.toggle('hidden', !opening);
+  if(opening) renderMenuProfile();
+}
+
+/* ---------- Menu profile card ---------- */
+function renderMenuProfile(){
+  const role=state.currentUser.role;
+  const avatar=document.getElementById('menuAvatar');
+  const name=document.getElementById('menuName');
+  const idEl=document.getElementById('menuId');
+  const balEl=document.getElementById('menuBalance');
+  if(role==='member'){
+    const m=findMember(state.currentUser.id);
+    avatar.innerHTML = m.photo? `<img src="${m.photo}">` : initials(m.name);
+    name.textContent=m.name; idEl.textContent=m.id;
+    balEl.classList.remove('hidden'); balEl.textContent='Balance: '+fmt(m.balance);
+  } else if(role==='mobiliser'){
+    avatar.innerHTML = initials(state.mobiliser.name); name.textContent=state.mobiliser.name; idEl.textContent=state.mobiliser.id;
+    balEl.classList.add('hidden');
+  } else {
+    avatar.innerHTML = initials(state.admin.name); name.textContent=state.admin.name; idEl.textContent=state.admin.id;
+    balEl.classList.add('hidden');
+  }
+  document.getElementById('themeSwitch').checked = state.theme==='dark';
+  document.getElementById('langSelect').value = state.language;
+}
+function initials(name){ return name.split(' ').filter(Boolean).slice(0,2).map(w=>w[0]).join(''); }
+
+/* ---------- Avatar upload (member) ---------- */
+function handleAvatarUpload(e){
+  const file=e.target.files[0]; if(!file) return;
+  const reader=new FileReader();
+  reader.onload=function(ev){
+    const m=findMember(state.currentUser.id);
+    m.photo=ev.target.result;
+    renderMenuProfile();
+    toast('Profile photo updated');
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ---------- Theme / language ---------- */
+function toggleTheme(){
+  state.theme = state.theme==='dark' ? 'light':'dark';
+  document.body.classList.toggle('light', state.theme==='light');
+}
+function setLanguage(lang){
+  state.language=lang;
+  const dict=I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(dict[key]) el.textContent=dict[key];
+  });
+}
+
+/* ---------- Password change modal (generic) ---------- */
+function openPasswordModal(){
+  const wrap=document.createElement('div');
+  wrap.className='modal-bg'; wrap.id='pwModalBg';
+  wrap.innerHTML=`
+    <div class="modal card">
+      <h3><i class="fa-solid fa-key"></i> Change Password</h3>
+      <div class="field"><label>Current Password</label>
+        <div class="pw-wrap"><input type="password" id="curPw"><button type="button" class="pw-toggle" onclick="togglePw('curPw',this)"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="field"><label>New Password</label>
+        <div class="pw-wrap"><input type="password" id="newPw"><button type="button" class="pw-toggle" onclick="togglePw('newPw',this)"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="field"><label>Confirm New Password</label>
+        <div class="pw-wrap"><input type="password" id="confPw"><button type="button" class="pw-toggle" onclick="togglePw('confPw',this)"><i class="fa-solid fa-eye"></i></button></div>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('pwModalBg').remove()">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="submitPasswordChange()">Update Password</button>
+      </div>
+    </div>`;
+  document.body.appendChild(wrap);
+}
+function submitPasswordChange(){
+  const cur=document.getElementById('curPw').value;
+  const nw=document.getElementById('newPw').value;
+  const conf=document.getElementById('confPw').value;
+  const role=state.currentUser.role;
+  let target = role==='member'? findMember(state.currentUser.id) : role==='mobiliser'? state.mobiliser : state.admin;
+
+  if(role==='admin'){ toast('Only the Mobiliser can change the Admin password.'); return; }
+  if(target.password!==cur){ toast('Current password is incorrect.'); return; }
+  if(!nw || nw.length<4){ toast('New password must be at least 4 characters.'); return; }
+  if(nw!==conf){ toast('New passwords do not match.'); return; }
+  target.password=nw;
+  document.getElementById('pwModalBg').remove();
+  toast('Password updated successfully.');
+}
+
+/* ---------- Ledger operations ---------- */
+function addTransaction(memberId, category, amount, direction, actorRole){
+  const m=findMember(memberId); if(!m) return;
+  amount=Number(amount);
+  if(direction==='credit') m.balance += amount; else m.balance -= amount;
+  m.transactions.unshift({date:todayStr(), category, amount, type:direction, balanceAfter:m.balance, by:actorRole});
+  const verb = direction==='credit'?'credited':'debited';
+  pushNotif(memberId, `Your account was ${verb} ${fmt(amount)} (${category}) by the ${actorRole}. New balance: ${fmt(m.balance)}.`, actorRole);
+}
+
+/* ---------- Mobiliser: manage members ---------- */
+function openAddMemberModal(){
+  const wrap=document.createElement('div');
+  wrap.className='modal-bg'; wrap.id='addMemModalBg';
+  wrap.innerHTML=`
+    <div class="modal card">
+      <h3><i class="fa-solid fa-user-plus"></i> Add New Member</h3>
+      <div class="field"><label>Full Name</label><input id="newMemName" placeholder="e.g. NAKATO IVAN"></div>
+      <p style="font-size:12px;color:var(--sub);margin-bottom:10px;">Member ID will be auto-assigned in ascending order. Default password: <b>member123</b></p>
+      <div class="modal-actions">
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('addMemModalBg').remove()">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="submitAddMember()">Add Member</button>
+      </div>
+    </div>`;
+  document.body.appendChild(wrap);
+}
+function submitAddMember(){
+  const name=document.getElementById('newMemName').value.trim().toUpperCase();
+  if(!name){ toast('Please enter the member name.'); return; }
+  const id = 'M-' + String(state.nextMemberNum).padStart(4,'0');
+  state.nextMemberNum++;
+  state.members.push(mkMember(id, name));
+  sortMembers();
+  document.getElementById('addMemModalBg').remove();
+  toast(`${name} added as ${id}`);
+  renderSection('sec-mob-manage'); renderSection('sec-mob-overview');
+}
+function removeMember(id){
+  if(!confirm('Remove this member? This cannot be undone.')) return;
+  state.members = state.members.filter(m=>m.id!==id);
+  delete state.notifications[id];
+  toast('Member removed.');
+  renderSection('sec-mob-manage'); renderSection('sec-mob-overview'); renderSection('sec-a-members');
+}
+function openBalanceModal(memberId){
+  const m=findMember(memberId);
+  const wrap=document.createElement('div');
+  wrap.className='modal-bg'; wrap.id='balModalBg';
+  wrap.innerHTML=`
+    <div class="modal card">
+      <h3><i class="fa-solid fa-sliders"></i> Update Balance — ${m.name}</h3>
+      <div class="field"><label>Category</label>
+        <select id="balCategory">
+          <option>Deposit</option><option>Withdrawal</option><option>Loan</option><option>Share</option><option>Repayment</option>
+        </select>
+      </div>
+      <div class="field"><label>Amount (UGX)</label><input type="number" id="balAmount" min="1"></div>
+      <div class="field"><label>Direction</label>
+        <select id="balDirection"><option value="credit">Credit (add to balance)</option><option value="debit">Debit (subtract from balance)</option></select>
+      </div>
+      <div class="modal-actions">
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('balModalBg').remove()">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="submitBalanceChange('${memberId}')">Apply Change</button>
+      </div>
+    </div>`;
+  document.body.appendChild(wrap);
+}
+function submitBalanceChange(memberId){
+  const cat=document.getElementById('balCategory').value;
+  const amt=Number(document.getElementById('balAmount').value);
+  const dir=document.getElementById('balDirection').value;
+  if(!amt || amt<=0){ toast('Enter a valid amount.'); return; }
+  const actorRole = state.currentUser.role;
+  addTransaction(memberId, cat, amt, dir, actorRole);
+  document.getElementById('balModalBg').remove();
+  toast('Balance updated and member notified.');
+  renderAllVisible();
+}
+
+/* ---------- Member: loan request ---------- */
+function openLoanModal(){
+  const wrap=document.createElement('div');
+  wrap.className='modal-bg'; wrap.id='loanModalBg';
+  wrap.innerHTML=`
+    <div class="modal card">
+      <h3><i class="fa-solid fa-hand-holding-dollar"></i> Request a Loan</h3>
+      <div class="field"><label>Amount (UGX)</label><input type="number" id="loanAmount" min="1"></div>
+      <div class="field"><label>Purpose</label><input id="loanPurpose" placeholder="e.g. Restock market goods"></div>
+      <div class="modal-actions">
+        <button class="btn btn-outline btn-sm" onclick="document.getElementById('loanModalBg').remove()">Cancel</button>
+        <button class="btn btn-primary btn-sm" onclick="submitLoanRequest()">Submit Request</button>
+      </div>
+    </div>`;
+  document.body.appendChild(wrap);
+}
+function submitLoanRequest(){
+  const amount=Number(document.getElementById('loanAmount').value);
+  const purpose=document.getElementById('loanPurpose').value.trim();
+  if(!amount || amount<=0 || !purpose){ toast('Please fill in all loan details.'); return; }
+  state.loans.push({id:'LN-'+String(state.loanSeq++).padStart(4,'0'), memberId:state.currentUser.id, amount, purpose, status:'pending', date:todayStr()});
+  document.getElementById('loanModalBg').remove();
+  toast('Loan request submitted for admin review.');
+  renderAllVisible();
+}
+
+/* ---------- Admin: loan decisions ---------- */
+function decideLoan(loanId, decision){
+  const loan=state.loans.find(l=>l.id===loanId); if(!loan) return;
+  loan.status=decision;
+  if(decision==='approved'){
+    addTransaction(loan.memberId, 'Loan', loan.amount, 'credit', 'admin');
+  }
+  pushNotif(loan.memberId, `Your loan request of ${fmt(loan.amount)} for "${loan.purpose}" was ${decision.toUpperCase()} by the Admin.`, decision);
+  toast(`Loan ${decision}.`);
+  renderAllVisible();
+}
+
+/* ---------- Profile saves ---------- */
+function saveMobProfile(){
+  state.mobiliser.name=document.getElementById('mobProfileName').value.trim() || state.mobiliser.name;
+  state.mobiliser.phone=document.getElementById('mobProfilePhone').value.trim();
+  state.mobiliser.email=document.getElementById('mobProfileEmail').value.trim();
+  renderMenuProfile();
+  toast('Profile details saved.');
+}
+function saveMobCreds(){
+  const id=document.getElementById('mobCredId').value.trim();
+  const pw=document.getElementById('mobCredPw').value;
+  if(!id || !pw){ toast('ID and password cannot be empty.'); return; }
+  state.mobiliser.id=id; state.mobiliser.password=pw;
+  toast('Mobiliser credentials updated.');
+  renderMenuProfile();
+}
+function saveAdminCredsByMob(){
+  const id=document.getElementById('adminCredId').value.trim();
+  const pw=document.getElementById('adminCredPw').value;
+  if(!id || !pw){ toast('ID and password cannot be empty.'); return; }
+  state.admin.id=id; state.admin.password=pw;
+  toast('Admin credentials updated.');
+}
+function saveAdminProfile(){
+  state.admin.name=document.getElementById('adminProfileName').value.trim() || state.admin.name;
+  state.admin.phone=document.getElementById('adminProfilePhone').value.trim();
+  state.admin.email=document.getElementById('adminProfileEmail').value.trim();
+  renderMenuProfile();
+  toast('Profile details saved.');
+}
+
+/* ---------- Growth graph (canvas) ---------- */
+function drawGrowthGraph(){
+  const canvas=document.getElementById('growthCanvas'); if(!canvas) return;
+  const m=findMember(state.currentUser.id);
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const w=canvas.clientWidth, h=canvas.clientHeight;
+  canvas.width=w*dpr; canvas.height=h*dpr; ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,w,h);
+
+  let points = m.transactions.slice().reverse().map(t=>t.balanceAfter);
+  points = [0, ...points];
+  if(points.length<2) points.push(m.balance);
+
+  const max=Math.max(...points,1), min=Math.min(...points,0);
+  const pad=30;
+  const stepX=(w-pad*2)/(points.length-1);
+  const scaleY = (h-pad*2) / (max-min || 1);
+
+  // grid
+  ctx.strokeStyle = getComputedStyle(document.body).getPropertyValue('--border');
+  ctx.lineWidth=1;
+  for(let i=0;i<=4;i++){
+    const y=pad+((h-pad*2)/4)*i;
+    ctx.beginPath(); ctx.moveTo(pad,y); ctx.lineTo(w-pad,y); ctx.stroke();
+  }
+
+  // line
+  ctx.beginPath();
+  points.forEach((p,i)=>{
+    const x=pad+i*stepX;
+    const y=h-pad-(p-min)*scaleY;
+    if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+  });
+  const grad=ctx.createLinearGradient(0,0,w,0);
+  grad.addColorStop(0,'#4b5320'); grad.addColorStop(1,'#7c8a3f');
+  ctx.strokeStyle=grad; ctx.lineWidth=3; ctx.lineJoin='round'; ctx.stroke();
+
+  // fill
+  ctx.lineTo(w-pad, h-pad); ctx.lineTo(pad, h-pad); ctx.closePath();
+  const fillGrad=ctx.createLinearGradient(0,0,0,h);
+  fillGrad.addColorStop(0,'rgba(124,138,63,.35)'); fillGrad.addColorStop(1,'rgba(124,138,63,0)');
+  ctx.fillStyle=fillGrad; ctx.fill();
+
+  // points
+  ctx.fillStyle='#7c8a3f';
+  points.forEach((p,i)=>{
+    const x=pad+i*stepX; const y=h-pad-(p-min)*scaleY;
+    ctx.beginPath(); ctx.arc(x,y,3.2,0,Math.PI*2); ctx.fill();
+  });
+}
+
+/* ---------- Overview stat calculations ---------- */
+function sumInRange(daysBack){
+  const cutoff = new Date(); cutoff.setDate(cutoff.getDate()-daysBack);
+  let deposits=0, withdrawals=0, loans=0;
+  state.members.forEach(m=>m.transactions.forEach(t=>{
+    if(new Date(t.date) >= cutoff){
+      if(t.category==='Deposit') deposits+=t.amount;
+      if(t.category==='Withdrawal') withdrawals+=t.amount;
+      if(t.category==='Loan') loans+=t.amount;
+    }
+  }));
+  return {deposits, withdrawals, loans};
+}
+
+/* ---------- Renderers ---------- */
+function renderAllVisible(){
+  const active=document.querySelector('.section.active');
+  if(active) renderSection(active.id);
+  renderMenuProfile();
+  renderNotifDot();
+}
+
+function renderSection(id){
+  switch(id){
+    case 'sec-m-dashboard': renderMemberDashboard(); break;
+    case 'sec-m-transactions': renderMemberAllTx(); break;
+    case 'sec-m-graph': drawGrowthGraph(); break;
+    case 'sec-m-loans': renderMemberLoans(); break;
+    case 'sec-m-history': renderMemberHistory(); break;
+    case 'sec-mob-overview': renderMobOverview(); break;
+    case 'sec-mob-manage': renderMobManage(); break;
+    case 'sec-mob-daily': renderMobDaily(); break;
+    case 'sec-mob-profile': renderMobProfile(); break;
+    case 'sec-a-overview': renderAdminOverview(); break;
+    case 'sec-a-members': renderAdminMembers(); break;
+    case 'sec-a-loans': renderAdminLoans(); break;
+    case 'sec-a-profile': renderAdminProfile(); break;
+  }
+}
+
+let memberCatFilter='all';
+function renderMemberDashboard(){
+  const m=findMember(state.currentUser.id);
+  const grid=document.getElementById('memberStatGrid');
+  const totals={Deposit:0,Withdrawal:0,Loan:0,Share:0};
+  m.transactions.forEach(t=>{ if(totals[t.category]!==undefined) totals[t.category]+= (t.type==='credit'?t.amount:-t.amount); });
+  grid.innerHTML=`
+    <div class="card stat-card army"><div class="st-label">Current Balance</div><div class="st-val">${fmt(m.balance)}</div><i class="fa-solid fa-wallet st-icon"></i></div>
+    <div class="card stat-card navy"><div class="st-label">Total Deposits</div><div class="st-val">${fmt(totals.Deposit)}</div><i class="fa-solid fa-arrow-down st-icon"></i></div>
+    <div class="card stat-card navy"><div class="st-label">Total Withdrawals</div><div class="st-val">${fmt(totals.Withdrawal)}</div><i class="fa-solid fa-arrow-up st-icon"></i></div>
+    <div class="card stat-card army"><div class="st-label">Loans Received</div><div class="st-val">${fmt(totals.Loan)}</div><i class="fa-solid fa-hand-holding-dollar st-icon"></i></div>
+  `;
+  const tabs=document.getElementById('memberCatTabs');
+  const cats=['all','Deposits','Withdrawals','Loans','Shares'];
+  tabs.innerHTML=cats.map(c=>`<button class="tab-btn ${memberCatFilter===c?'active':''}" onclick="setMemberCatFilter('${c}')">${c[0].toUpperCase()+c.slice(1)}</button>`).join('');
+  const tbody=document.getElementById('memberCatTable');
+  let rows=m.transactions;
+  if(memberCatFilter!=='all') rows=rows.filter(t=> (t.category+'s')===memberCatFilter || t.category===memberCatFilter.slice(0,-1));
+  tbody.innerHTML = rows.length? rows.slice(0,8).map(t=>`<tr><td>${t.date}</td><td><span class="cat-badge cat-${t.category}">${t.category}</span></td><td class="${t.type==='credit'?'tx-credit':'tx-debit'}">${t.type==='credit'?'+':'-'}${fmt(t.amount)}</td><td>${t.type}</td></tr>`).join('')
+    : `<tr><td colspan="4"><div class="empty-state"><i class="fa-regular fa-folder-open"></i>No transactions yet in this category</div></td></tr>`;
+}
+function setMemberCatFilter(c){ memberCatFilter=c; renderMemberDashboard(); }
+
+function renderMemberAllTx(){
+  const m=findMember(state.currentUser.id);
+  const tbody=document.getElementById('memberAllTxTable');
+  tbody.innerHTML = m.transactions.length? m.transactions.map(t=>`<tr><td>${t.date}</td><td><span class="cat-badge cat-${t.category}">${t.category}</span></td><td>${t.category} — ${t.type}</td><td class="${t.type==='credit'?'tx-credit':'tx-debit'}">${t.type==='credit'?'+':'-'}${fmt(t.amount)}</td></tr>`).join('')
+    : `<tr><td colspan="4"><div class="empty-state"><i class="fa-regular fa-folder-open"></i>No transactions recorded yet</div></td></tr>`;
+}
+
+function renderMemberLoans(){
+  const tbody=document.getElementById('memberLoansTable');
+  const mine=state.loans.filter(l=>l.memberId===state.currentUser.id);
+  tbody.innerHTML = mine.length? mine.map(l=>`<tr><td>${l.date}</td><td>${fmt(l.amount)}</td><td>${l.purpose}</td><td><span class="pill ${l.status}">${l.status}</span></td></tr>`).join('')
+    : `<tr><td colspan="4"><div class="empty-state"><i class="fa-regular fa-hourglass"></i>No loan requests yet</div></td></tr>`;
+}
+
+function renderMemberHistory(){
+  const m=findMember(state.currentUser.id);
+  const tbody=document.getElementById('memberHistoryTable');
+  tbody.innerHTML = m.transactions.length? m.transactions.map(t=>`<tr><td>${t.date}</td><td><span class="cat-badge cat-${t.category}">${t.category}</span></td><td class="${t.type==='credit'?'tx-credit':'tx-debit'}">${t.type==='credit'?'+':'-'}${fmt(t.amount)}</td><td>${fmt(t.balanceAfter)}</td></tr>`).join('')
+    : `<tr><td colspan="4"><div class="empty-state"><i class="fa-regular fa-clock"></i>No history yet</div></td></tr>`;
+}
+
+function renderMobOverview(){
+  const d=sumInRange(1), w=sumInRange(7), mo=sumInRange(30), y=sumInRange(365);
+  const grid=document.getElementById('mobStatGrid');
+  grid.innerHTML=[
+    ['Today', d],['This Week', w],['This Month', mo],['This Year', y]
+  ].map(([label,val])=>`
+    <div class="card stat-card army"><div class="st-label">${label} — Deposits</div><div class="st-val">${fmt(val.deposits)}</div><i class="fa-solid fa-coins st-icon"></i></div>
+  `).join('');
+  const list=document.getElementById('mobMembersList');
+  list.innerHTML = state.members.map(m=>`
+    <div class="member-row">
+      <div class="mi"><div class="avatar" style="width:38px;height:38px;font-size:13px;">${m.photo?`<img src="${m.photo}">`:initials(m.name)}</div>
+      <div><div>${m.name}</div><div class="mid">${m.id} · ${fmt(m.balance)}</div></div></div>
+    </div>`).join('');
+}
+
+function renderMobManage(){
+  const tbody=document.getElementById('mobManageTable');
+  tbody.innerHTML = state.members.map(m=>`
+    <tr><td class="mid" style="color:var(--army-light);font-weight:700;">${m.id}</td><td>${m.name}</td><td>${fmt(m.balance)}</td>
+    <td class="actions">
+      <button class="btn btn-navy btn-sm" onclick="openBalanceModal('${m.id}')"><i class="fa-solid fa-sliders"></i></button>
+      <button class="btn btn-danger btn-sm" onclick="removeMember('${m.id}')"><i class="fa-solid fa-user-minus"></i></button>
+    </td></tr>`).join('');
+}
+
+let mobDailyFilter='all';
+function renderMobDaily(){
+  const tabs=document.getElementById('mobDailyTabs');
+  const cats=['all','Deposit','Withdrawal','Loan','Repayment'];
+  tabs.innerHTML=cats.map(c=>`<button class="tab-btn ${mobDailyFilter===c?'active':''}" onclick="setMobDailyFilter('${c}')">${c}</button>`).join('');
+  let rows=[];
+  state.members.forEach(m=>m.transactions.filter(t=>t.date===todayStr()).forEach(t=>rows.push({...t, member:m.name})));
+  if(mobDailyFilter!=='all') rows=rows.filter(r=>r.category===mobDailyFilter);
+  const tbody=document.getElementById('mobDailyTable');
+  tbody.innerHTML = rows.length? rows.map(r=>`<tr><td>${r.date}</td><td>${r.member}</td><td class="${r.type==='credit'?'tx-credit':'tx-debit'}">${r.type==='credit'?'+':'-'}${fmt(r.amount)}</td><td>${r.type}</td></tr>`).join('')
+    : `<tr><td colspan="4"><div class="empty-state"><i class="fa-regular fa-calendar"></i>No transactions today</div></td></tr>`;
+}
+function setMobDailyFilter(c){ mobDailyFilter=c; renderMobDaily(); }
+
+function renderMobProfile(){
+  document.getElementById('mobProfileName').value=state.mobiliser.name;
+  document.getElementById('mobProfilePhone').value=state.mobiliser.phone;
+  document.getElementById('mobProfileEmail').value=state.mobiliser.email;
+  document.getElementById('mobCredId').value=state.mobiliser.id;
+  document.getElementById('mobCredPw').value=state.mobiliser.password;
+  document.getElementById('adminCredId').value=state.admin.id;
+  document.getElementById('adminCredPw').value=state.admin.password;
+}
+
+function renderAdminOverview(){
+  const d=sumInRange(1), w=sumInRange(7), mo=sumInRange(30), y=sumInRange(365);
+  const grid=document.getElementById('adminStatGrid');
+  grid.innerHTML=[
+    ['Daily', d],['Weekly', w],['Monthly', mo],['Annually', y]
+  ].map(([label,val])=>`
+    <div class="card stat-card navy">
+      <div class="st-label">${label} Deposits</div><div class="st-val">${fmt(val.deposits)}</div>
+      <div style="font-size:11px;color:var(--sub);margin-top:6px;">Withdrawals: ${fmt(val.withdrawals)} · Loans: ${fmt(val.loans)}</div>
+      <i class="fa-solid fa-chart-column st-icon"></i>
+    </div>`).join('');
+}
+
+function renderAdminMembers(){
+  const tbody=document.getElementById('adminMembersTable');
+  tbody.innerHTML = state.members.map(m=>`
+    <tr><td class="mid" style="color:var(--army-light);font-weight:700;">${m.id}</td><td>${m.name}</td><td>${fmt(m.balance)}</td>
+    <td><button class="btn btn-navy btn-sm" onclick="openBalanceModal('${m.id}')"><i class="fa-solid fa-sliders"></i> Adjust</button></td></tr>`).join('');
+}
+
+function renderAdminLoans(){
+  const tbody=document.getElementById('adminLoansTable');
+  tbody.innerHTML = state.loans.length? state.loans.map(l=>{
+    const m=findMember(l.memberId);
+    const decisionCell = l.status==='pending'
+      ? `<button class="btn btn-primary btn-sm" onclick="decideLoan('${l.id}','approved')"><i class="fa-solid fa-check"></i></button>
+         <button class="btn btn-danger btn-sm" onclick="decideLoan('${l.id}','rejected')"><i class="fa-solid fa-xmark"></i></button>`
+      : `<span class="pill ${l.status}">${l.status}</span>`;
+    return `<tr><td>${l.date}</td><td>${m?m.name:l.memberId}</td><td>${fmt(l.amount)}</td><td>${l.purpose}</td><td><span class="pill ${l.status}">${l.status}</span></td><td>${decisionCell}</td></tr>`;
+  }).join('') : `<tr><td colspan="6"><div class="empty-state"><i class="fa-regular fa-hand-point-up"></i>No loan requests yet</div></td></tr>`;
+}
+
+function renderAdminProfile(){
+  document.getElementById('adminProfileName').value=state.admin.name;
+  document.getElementById('adminProfilePhone').value=state.admin.phone;
+  document.getElementById('adminProfileEmail').value=state.admin.email;
+  document.getElementById('adminIdView').value=state.admin.id;
+  document.getElementById('mobNameRef').textContent=state.mobiliser.name;
+}
+
+/* ---------- Init ---------- */
+sortMembers();
+setLoginRole('member');
+window.addEventListener('resize', ()=>{ if(document.getElementById('sec-m-graph').classList.contains('active')) drawGrowthGraph(); });
+</script>
+</body>
+</html>
